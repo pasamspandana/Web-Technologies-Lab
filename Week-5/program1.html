@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Interest Calculator</title>
+</head>
+
+<body bgcolor="lightblue">
+
+<center>
+<h2>Simple Interest Calculator</h2>
+
+<form onsubmit="calculateSI(); return false;">
+<table border="1" bgcolor="white">
+    <tr>
+        <td>Customer Name</td>
+        <td><input type="text" id="name" required></td>
+    </tr>
+
+    <tr>
+        <td>Principal Amount</td>
+        <td><input type="number" id="principal" required></td>
+    </tr>
+
+    <tr>
+        <td>Rate of Interest (%)</td>
+        <td><input type="number" id="rate" required></td>
+    </tr>
+
+    <tr>
+        <td>Time (Years)</td>
+        <td><input type="number" id="time" required></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="Calculate SI">
+        </td>
+    </tr>
+</table>
+</form>
+
+<br>
+
+<h3>Interest Information</h3>
+
+<table border="1" bgcolor="white">
+    <tr>
+        <td>Name</td>
+        <td><input type="text" id="rname" readonly></td>
+    </tr>
+
+    <tr>
+        <td>Principal Amount</td>
+        <td><input type="text" id="rprincipal" readonly></td>
+    </tr>
+
+    <tr>
+        <td>Simple Interest</td>
+        <td><input type="text" id="rsi" readonly></td>
+    </tr>
+
+    <tr>
+        <td>Total Amount</td>
+        <td><input type="text" id="rtotal" readonly></td>
+    </tr>
+</table>
+</center>
+
+<script>
+function calculateSI()
+{
+    var name = document.getElementById("name").value;
+    var principal = parseFloat(document.getElementById("principal").value);
+    var rate = parseFloat(document.getElementById("rate").value);
+    var time = parseFloat(document.getElementById("time").value);
+
+    var si = (principal * rate * time) / 100;
+    var total = principal + si;
+
+    document.getElementById("rname").value = name;
+    document.getElementById("rprincipal").value = principal.toFixed(2);
+    document.getElementById("rsi").value = si.toFixed(2);
+    document.getElementById("rtotal").value = total.toFixed(2);
+}
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"02658701d4714cc09f495157cbb0f901","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
